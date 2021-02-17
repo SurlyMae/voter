@@ -1,25 +1,25 @@
 import React from "react";
+import StateLink from "../StateLink";
 
-function Navpane() {
+function Navpane({ members }) {
+  const getCircularReplacer = () => {
+    const seen = new WeakSet();
+    return (key, value) => {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  };
+  console.log(`props are ${JSON.stringify(members, getCircularReplacer())}`);
   return (
     <nav className="nav flex-column">
-      <a className="nav-link active" aria-current="page" href="#">
-        Active
-      </a>
-      <a className="nav-link" href="#">
-        Link
-      </a>
-      <a className="nav-link" href="#">
-        Link
-      </a>
-      <a
-        className="nav-link disabled"
-        href="#"
-        tabindex="-1"
-        aria-disabled="true"
-      >
-        Disabled
-      </a>
+      {members.map((member) => {
+        return <StateLink key={member.id} state={member.state}></StateLink>;
+      })}
     </nav>
   );
 }

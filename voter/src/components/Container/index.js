@@ -1,4 +1,5 @@
 import React from "react";
+import SummaryRow from "../SummaryRow";
 
 function Container({ children }) {
   return (
@@ -7,7 +8,7 @@ function Container({ children }) {
         <div className="row h-100">
           <div className="col-4 border border-5">{children}</div>
           <div className="col-8 border border-5">
-            {<img src="/images/voter-sq.png" alt="voter"></img>}
+            <SummaryRow />
           </div>
         </div>
       }
