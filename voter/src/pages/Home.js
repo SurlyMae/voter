@@ -5,30 +5,33 @@ import Navpane from "../components/Navpane";
 import axios from "axios";
 
 function Home() {
-  const [members, getStates] = useState([]);
+  const [members, getMembers] = useState([]);
+  const [states, getStates] = useState([]);
   const apiCall =
     "https://api.propublica.org/congress/v1/116/senate/members.json";
+
+  useEffect(() => {
+    axios.get("./states.json").then((res) => {
+      getStates(res.data.states);
+    });
+  });
+
   useEffect(() => {
     axios
       .get(apiCall, {
         headers: { "X-API-Key": "IWc4gzoEbejd3CUB2eNz5EMyKsgT9MC7EFmz7M6A" },
       })
       .then((res) => {
-        getStates(res.data.results[0].members);
+        getMembers(res.data.results[0].members);
         // console.log(`members is ${JSON.stringify(members)}`);
       });
   }, []);
 
-  // getStates(members) {
-  //   members.map((member) => {
-  //     return { props: member.state };
-  //   });
-  // }
   return (
     <>
       <Navbar />
       <Container>
-        <Navpane members={members}></Navpane>;
+        <Navpane states={states}></Navpane>;
       </Container>
     </>
   );
