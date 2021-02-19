@@ -14,24 +14,23 @@ function Home() {
     axios.get("./states.json").then((res) => {
       getStates(res.data.states);
     });
-  });
-
-  useEffect(() => {
-    axios
-      .get(apiCall, {
-        headers: { "X-API-Key": "IWc4gzoEbejd3CUB2eNz5EMyKsgT9MC7EFmz7M6A" },
-      })
-      .then((res) => {
-        getMembers(res.data.results[0].members);
-        // console.log(`members is ${JSON.stringify(members)}`);
-      });
   }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(apiCall, {
+  //       headers: { "X-API-Key": "IWc4gzoEbejd3CUB2eNz5EMyKsgT9MC7EFmz7M6A" },
+  //     })
+  //     .then((res) => {
+  //       getMembers(res.data.results[0].members);
+  //     });
+  // }, []);
 
   return (
     <>
       <Navbar />
       <Container>
-        <Navpane states={states}></Navpane>;
+        <Navpane states={states}></Navpane>
       </Container>
     </>
   );

@@ -34,7 +34,19 @@ import React from "react";
 //   );
 // }
 
-function Quickview() {
+function Quickview({}) {
+  // console.log(props.param, props.paramType);
+  // const sensbyState = `https://api.propublica.org/congress/v1/members/senate/${state}/current.json`;
+
+  // axios
+  //   .get(sensbyState, {
+  //     headers: { "X-API-Key": "IWc4gzoEbejd3CUB2eNz5EMyKsgT9MC7EFmz7M6A" },
+  //   })
+  //   .then((res) => {
+  //     getStateSens(res.data.results);
+  //   });
+
+  // return <Quickview senators={stateSens}></Quickview>;
   return (
     <div className="col-8">
       <ul>
