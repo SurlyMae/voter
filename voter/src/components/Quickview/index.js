@@ -1,58 +1,14 @@
 import React from "react";
 
-// function Navpane({ members }) {
-//   let stateArray = [];
-//   members.map((member) => {
-//     stateArray.push({ id: member.id, state: member.state });
-//   });
+function Quickview(props) {
+  console.log(`inside quickview props are ${JSON.stringify(props)}`);
 
-//   // let states = [];
-//   // states.push(a.state);
-//   // if (!states.includes(b.state)) {
-//   //   states.push(b.state);
-//   // }
-
-//   stateArray.sort((a, b) => {
-//     if (a.state < b.state) {
-//       return -1;
-//     }
-//     if (a.state > b.state) {
-//       return 1;
-//     }
-//     return 0;
-//   });
-
-//   stateArray = [...new Set(stateArray)];
-//   console.log(stateArray);
-
-//   return (
-//     <nav className="nav flex-column">
-//       {stateArray.map((member) => {
-//         return <StateLink key={member.id} state={member.state}></StateLink>;
-//       })}
-//     </nav>
-//   );
-// }
-
-function Quickview({}) {
-  // console.log(props.param, props.paramType);
-  // const sensbyState = `https://api.propublica.org/congress/v1/members/senate/${state}/current.json`;
-
-  // axios
-  //   .get(sensbyState, {
-  //     headers: { "X-API-Key": "IWc4gzoEbejd3CUB2eNz5EMyKsgT9MC7EFmz7M6A" },
-  //   })
-  //   .then((res) => {
-  //     getStateSens(res.data.results);
-  //   });
-
-  // return <Quickview senators={stateSens}></Quickview>;
   return (
     <div className="col-8">
       <ul>
-        <li>Sen/Rep</li>
-        <li>Party</li>
-        <li>District/State</li>
+        <li>{props.member.member.name}</li>
+        <li>{props.member.member.party}</li>
+        <li></li>
       </ul>
     </div>
   );

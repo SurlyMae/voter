@@ -1,28 +1,15 @@
-import axios from "axios";
-import React, { useState } from "react";
-import Quickview from "../Quickview";
-import SummaryRow from "../SummaryRow";
+import React from "react";
 
-function StateLink({ state }) {
-  const [stateAbbr, getStates] = useState([state]);
-
-  const showStateSens = (clickedState) => {
-    // console.log(clickedState);
-
-    getStates(clickedState);
-    return <SummaryRow props="clickedprops"></SummaryRow>;
-  };
-
+function StateLink(props) {
+  // console.log(`inside state props are ${JSON.stringify(props)}`);
   return (
     <>
       <a
         className="nav-link"
         href="#"
-        onClick={() => {
-          showStateSens(state);
-        }}
+        onClick={() => props.onClick(props.state)}
       >
-        {state}
+        {props.state}
       </a>
     </>
   );

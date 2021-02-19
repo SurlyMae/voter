@@ -1,21 +1,73 @@
 import React, { useEffect, useState } from "react";
 import Container from "../components/Container";
 import Navbar from "../components/Navbar";
-import Navpane from "../components/Navpane";
+
 import axios from "axios";
 
 function Home() {
-  const [members, getMembers] = useState([]);
-  const [states, getStates] = useState([]);
-  const apiCall =
-    "https://api.propublica.org/congress/v1/116/senate/members.json";
+  // const [members, getMembers] = useState([]);
+  const [states, getStates] = useState([
+    "AK",
+    "AL",
+    "AR",
+    "AZ",
+    "CA",
+    "CO",
+    "CT",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "IA",
+    "ID",
+    "IL",
+    "IN",
+    "KS",
+    "KY",
+    "LA",
+    "MA",
+    "MD",
+    "ME",
+    "MI",
+    "MN",
+    "MO",
+    "MS",
+    "MT",
+    "NC",
+    "ND",
+    "NE",
+    "NH",
+    "NJ",
+    "NM",
+    "NV",
+    "NY",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VA",
+    "VT",
+    "WA",
+    "WI",
+    "WV",
+    "WY",
+  ]);
+  // const apiCall =
+  // "https://api.propublica.org/congress/v1/116/senate/members.json";
 
-  useEffect(() => {
-    axios.get("./states.json").then((res) => {
-      getStates(res.data.states);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("./states.json").then((res) => {
+  //     getStates(res.data.states);
+  //   });
+  // }, []);
 
+  console.log(states);
   // useEffect(() => {
   //   axios
   //     .get(apiCall, {
@@ -29,9 +81,7 @@ function Home() {
   return (
     <>
       <Navbar />
-      <Container>
-        <Navpane states={states}></Navpane>
-      </Container>
+      <Container states={states} />
     </>
   );
 }

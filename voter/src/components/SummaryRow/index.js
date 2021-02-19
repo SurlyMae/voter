@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import Image from "../Image";
 import Quickview from "../Quickview";
 
-function SummaryRow({ props }) {
-  const [summaryProps, getSummaryProps] = useState(props);
-
-  console.log(props);
+function SummaryRow(props) {
+  console.log(`inside summary props, ${JSON.stringify(props)}`);
   return (
     <div className="row border border-5 border-dark">
-      <Image />
-      <Quickview props={summaryProps}></Quickview>
+      {/* <Image /> */}
+      <Quickview member={props} />
     </div>
   );
 }
